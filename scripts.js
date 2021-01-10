@@ -21,7 +21,7 @@ async function getChart(debt) {
 		var b = 255;
 		return "rgb(" + r + "," + g + "," + b + ")";
 	};
-
+	// Color of paid debts
 	for(var item of allPaidTxt)
 	{
 		var split = item.innerText.split("$");
@@ -31,7 +31,7 @@ async function getChart(debt) {
 		allPaid.push(paidDebt);
 		labels.push(split[1].split("-")[1]);
 		colors.push(dynamicColors(count));
-		count+=15;
+		count+=30; //change extremes between colors
 	}
 
 	allPaid.push(debt);
@@ -56,8 +56,8 @@ async function getChart(debt) {
 			labels: labels,
 			datasets: [{
 				backgroundColor: colors,
-				borderColor: borderGradient,
-				borderWidth: 5,
+				borderColor: 'lightgrey',
+				borderWidth: 1,
 				data: allPaid
 			}]
 		},
