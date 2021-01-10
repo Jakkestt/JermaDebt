@@ -22,6 +22,7 @@
     "chart.js": "^2.9.4",
     "number-flip": "^1.1.10",
     "number-to-words": "^1.2.4",
+    "react-papaparse": "^3.11.1",
     "serve": "^11.3.2",
     "title-case": "^3.0.3"
   },

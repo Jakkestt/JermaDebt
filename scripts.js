@@ -2,6 +2,7 @@ var converter = require('number-to-words');
 import { titleCase } from "title-case";
 import { Flip } from "number-flip";
 import Chart from "chart.js";
+import { readString } from 'react-papaparse';
 
 
 async function readTextFile(file) {
@@ -9,10 +10,30 @@ async function readTextFile(file) {
 	return await resp.text();
 }
 
+//var csv is the CSV file with headers
+async function csvJSON(){
+	const csv = await readTextFile("debt.csv");
+	const results = readString(csv);
+
+	return results;
+}
+
 async function getChart(debt) {
 	let labels     = [], allPaid = [], colors = [];
 	var count      =  0;
 	var ctx        = document.getElementById('myChart').getContext('2d');
+	var result 	   = csvJSON();
+	var debts 	   = [];
+	Promise.resolve(result).then(function(value) {
+		console.log(value); // "Success"
+		console.log(value.data);
+	}, function(value) {
+		// not called
+		console.log(result);
+	});
+	
+	
+
 	var allPaidTxt = document.getElementById("paid").getElementsByTagName("li");
 
 	var dynamicColors = function(test) {
