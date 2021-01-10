@@ -18,7 +18,7 @@ async function getChart(debt) {
 	var dynamicColors = function(test) {
 		var r = 0;
 		var g = 0 + test;
-		var b = 255;
+		var b = 245;
 		return "rgb(" + r + "," + g + "," + b + ")";
 	};
 	// Color of paid debts
@@ -31,7 +31,7 @@ async function getChart(debt) {
 		allPaid.push(paidDebt);
 		labels.push(split[1].split("-")[1]);
 		colors.push(dynamicColors(count));
-		count+=30; //change extremes between colors
+		count+=25; //change extremes between colors
 	}
 
 	allPaid.push(debt);
@@ -69,6 +69,7 @@ async function getChart(debt) {
 			  labels: {
 				fontColor: "white",
 				fontSize: 18,
+				fontFamily: "ubuntu",
 				},
 			},
 		}
